@@ -13,5 +13,5 @@ const root= ReactDOM.createRoot(el);
 
 //creamos un componente
 
-//Mostrar componente en panalla
+//Mostrar componente en pantalla
 root.render(<App/>)

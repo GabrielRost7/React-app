@@ -1,11 +1,14 @@
-import Carrito from "./assets/CarritoReact.png"
+import Carrito from "./assets/CarritoReact.png" 
+import "./CartWidget.css"
 function CartWidget(){
     let contador= "mi cardwidget?"
 
     return(
         <div>
+            <button className="boton-carrito">
             <img src={Carrito} alt="Carrito"/>
-            1
+            {0}
+            </button>
         </div>
     )
 }

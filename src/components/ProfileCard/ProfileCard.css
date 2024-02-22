@@ -1,0 +1,53 @@
+.card-container{
+    margin: 5px;
+    height: 480px;
+    width: 375px;
+    border: solid 1px black;   
+}
+.card-image{
+    height: 300px;
+    width: 375px;
+    border-bottom: 2px solid black;
+}
+.modelo-moto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 35px;
+    font-size: large;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    background-color: hsl(0, 0%, 9%);
+    
+}
+/*
+hsl(171, 70%, 69%)
+rgb(161, 161, 161)
+*/
+.descripcion-moto{    
+    color: white;
+    background-color: rgb(161, 161, 161);
+    height: 113px;
+    max-width: 373px;
+    padding: 5px;
+    word-wrap: break-word;
+    text-align: left;
+    font-weight: bold;       
+}
+.detalle-moto{
+    background-color: rgb(161, 161, 161);
+    height: 30px;
+    width: 373px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;       
+}
+.detalle-moto-precio{
+    margin: 0 0 0 10px;
+    color: black;
+    text-decoration: overline;
+    font-weight: bold;
+}
+
+

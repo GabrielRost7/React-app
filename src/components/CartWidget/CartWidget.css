@@ -1,0 +1,11 @@
+.boton-carrito{
+    color: white;
+    font-weight: bolder;
+    background-color: transparent;
+    border: solid 1px hsl(171, 70%, 69%);
+    border-radius: 10px;
+}
+.boton-carrito img:hover{
+    rotate: 360deg;
+    transition: 1.5s;
+}
