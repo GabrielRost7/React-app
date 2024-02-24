@@ -1,6 +1,6 @@
 import './Item.css';
-
-function Item({id, img, modelo, descripcion, valor}){  
+import { Link } from 'react-router-dom';
+function Item({id, img, modelo, descripcion, valor, Cc}){  
     
     return(
         <div className="card card-container">
@@ -9,7 +9,7 @@ function Item({id, img, modelo, descripcion, valor}){
             <h3 className=" is-centered modelo-moto">{modelo}</h3>
             <div className='descripcion-moto'>               
                 <p className=' precio-moto'>Precio unitario: {valor}US$</p>
-                <button className="detalle-moto option">Ver detalle</button>
+                <Link to={`/item/${id}`}><button className="detalle-moto option">Ver detalle</button></Link>
             </div>
                     
         </div>

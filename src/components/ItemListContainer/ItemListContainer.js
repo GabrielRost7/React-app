@@ -1,5 +1,5 @@
 import'./ItemListContainer.css';
-import {getProducts, getProductByCc} from '../../AsynMock';
+import {getProducts, getProductById} from '../../AsynMock';
 import ItemList from '../ItemList/ItemList';
 import { useState, useEffect } from 'react';
 
@@ -7,11 +7,12 @@ import { useParams } from 'react-router-dom';
 function ItemListContainer({Saludo}){
 
     const [products, setProducts]=useState([]);
-    const {CategoryCc}=useParams();
+    const {categoryId}=useParams();
 
     useEffect(()=>{
+        const asycFunc= categoryId ? getProductById : getProducts;
         
-        getProducts()
+        asycFunc(categoryId)
         .then(response=>{
             setProducts(response)
         })
@@ -19,7 +20,7 @@ function ItemListContainer({Saludo}){
             console.log(error)
         })
     
-    })
+    },[categoryId])
 
     const productsFirstRange = products.filter(prod => parseInt(prod.id) >= 1 && parseInt(prod.id) <= 3);
     const productsSecondRange = products.filter(prod => parseInt(prod.id) >= 4 && parseInt(prod.id) <= 6);

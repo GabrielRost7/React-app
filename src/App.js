@@ -1,5 +1,5 @@
 import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -21,7 +21,7 @@ function App(){
                         {<div className="hero is-dark">
                         <ItemListContainer Saludo={"Bienvenidos a la página de Motocompras!"}/></div>}
                     />
-                    <Route path="/Category/:CategoryCc" element=
+                    <Route path="/Category/:ItemCc" element=
                         {<ItemListContainer></ItemListContainer>}
                     />  
                     <Route path="/Item/:ItemId" element=

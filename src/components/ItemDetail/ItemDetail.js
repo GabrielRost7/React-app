@@ -1,6 +1,6 @@
 import "./ItemDetail.css"
 import ItemCount from "../ItemCount/ItemCount";
-function ItemDetail({id, img, modelo, descripcion, valor}){  
+function ItemDetail({id, img, modelo, descripcion, valor, Cc}){  
     
     return(
         <div className="card card-container-detalle">
