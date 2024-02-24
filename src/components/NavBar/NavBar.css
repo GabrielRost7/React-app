@@ -10,11 +10,12 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px;
+    display: flex;
+    align-items: center;
 }
-.navbar-index a{
+.navbar-index a{  
     color: black;
     font-weight: bolder;
-    
 }
 .navbar-index:hover{
     border: solid 1px  rgb(228, 86, 86);

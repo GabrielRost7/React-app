@@ -15,6 +15,9 @@ function ItemListContainer({Saludo}){
         })
     
     })
+    const productsFirstRange = products.filter(prod => parseInt(prod.id) >= 1 && parseInt(prod.id) <= 3);
+    const productsSecondRange = products.filter(prod => parseInt(prod.id) >= 4 && parseInt(prod.id) <= 6);
+    const productsThirdRange = products.filter(prod => parseInt(prod.id) >= 7 && parseInt(prod.id) <= 9);
     
     return(
         <div>
@@ -22,7 +25,13 @@ function ItemListContainer({Saludo}){
                 <h2 className="title-item">{Saludo}</h2>
             </div>
             <div className='producto-itemlist'>
-                <ItemList products={products}/>
+                <ItemList products={productsFirstRange}/>
+            </div>
+            <div className='producto-itemlist'>
+                <ItemList products={productsSecondRange}/>
+            </div>
+            <div className='producto-itemlist'>
+                <ItemList products={productsThirdRange}/>
             </div>
         </div>
     )
