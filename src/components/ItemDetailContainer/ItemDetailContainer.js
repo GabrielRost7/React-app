@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
-import {getProductById} from "../../AsynMock"
+import {getProductByCc} from "../../AsynMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
 const ItemDetailContainer=()=>{
     const [product, setproduct]=useState(null)
     useEffect(()=>{
-        getProductById('1')
+        getProductByCc('250')
         .then(response=>{
             setproduct(response)
         })
