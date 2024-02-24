@@ -1,6 +1,6 @@
 .card-container{
     margin: 5px;
-    height: 480px;
+    height: 407px;
     width: 375px;
     border: solid 1px black;   
 }
@@ -28,26 +28,29 @@ rgb(161, 161, 161)
 .descripcion-moto{    
     color: white;
     background-color: rgb(161, 161, 161);
-    height: 113px;
+    height: 70px;
     max-width: 373px;
     padding: 5px;
-    word-wrap: break-word;
-    text-align: left;
-    font-weight: bold;       
-}
-.detalle-moto{
-    background-color: rgb(161, 161, 161);
-    height: 30px;
-    width: 373px;
     display: flex;
     justify-content: space-between;
-    align-items: center;       
+    align-items: center;     
 }
-.detalle-moto-precio{
+
+.precio-moto{
+    width: 135px;
     margin: 0 0 0 10px;
     color: black;
-    text-decoration: overline;
+    text-decoration:underline;
     font-weight: bold;
 }
+.detalle-moto{
+    background-color: hsl(171, 70%, 69%);
+    height: 30px;
+    width: 130px;
+    border-radius: 15px;
+    font-size: small;  
+    font-weight: bolder;  
+}
+
 
 

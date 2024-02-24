@@ -1,12 +1,19 @@
 .Container-carrito{
-    width: 120px;
+    width: 373px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sumar-carro{
+    width: 135px;
+    height: 43px;
     display: flex;
     justify-content: space-around;
-    
+    align-items: center;
 }
-.Container-carrito button{
+.sumar-carro button{
     width: 30px;
-    margin: 0;
     border-radius: 5px;
     border: solid 1px black;
     padding: 3px;
@@ -16,12 +23,13 @@
     
 }
 
-.Container-carrito button:hover{
+.sumar-carro button:hover{
     background-color: rgb(0, 0, 0);
     border: solid 1px rgb(228, 86, 86);
     color: rgb(255, 255, 255);
 }
 .contador-carrito{
+    background-color: white;
     display: flex;
     justify-content: center;
     width: 23px;
@@ -30,4 +38,24 @@
     border-radius: 10px;
     font-size: large;
     font-weight: bolder;
+}
+.agregar-carrito{
+    width: 130px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.agregar-carrito button{
+    background-color: hsl(171, 70%, 69%);
+    height: 30px;
+    border-radius: 15px;
+    font-weight: bolder;
+    font-size: small;
+}
+.agregar-carrito button:hover{
+    background-color: rgb(0, 0, 0);
+    border: solid 1px rgb(228, 86, 86);
+    color: rgb(255, 255, 255);
 }

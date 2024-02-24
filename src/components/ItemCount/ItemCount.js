@@ -1,21 +1,33 @@
 import { useState } from 'react';
-import './ItemCount.css'
-function CarritodeCompra(){
+import './ItemCount.css';
+function ItemCount({inicial, stock, onAdd}){
+
+    const[cantidad, setCantidad]=useState(inicial);
     
     function sacarCarrito(){
-        if(count>0){
-            setCount(count-1)
+        if(cantidad>0){
+            setCantidad(cantidad-1)
         }       
     }
-    const[count, setCount]=useState(0);
+    function sumarCarrito(){
+        if (cantidad<stock){
+            setCantidad(cantidad+1)
+        }
+    }
+    
+
     return(
         <div className='Container-carrito'>
-            <button onClick={sacarCarrito}>-</button>           
-            <p className='contador-carrito'>{count}</p>
-            <button onClick={()=>setCount(count+1)}>+</button>
-            
+            <div className='sumar-carro'>
+                <button onClick={sacarCarrito}>-</button>           
+                <p className='contador-carrito'>{cantidad}</p>
+                <button onClick={sumarCarrito}>+</button>
+            </div>
+            <div className='agregar-carrito'>
+                <button onClick={()=>onAdd(cantidad)} disabled={!stock}>Agregar al Carrito</button>
+            </div>
         </div>
     )
 }
 
-export default CarritodeCompra;
+export default ItemCount;
