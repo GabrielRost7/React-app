@@ -1,53 +1,54 @@
-import'./ItemListContainer.css';
-import {getProducts, getProductById} from '../../AsynMock';
+import './ItemListContainer.css';
+import { getProducts, getProductByCategory } from '../../AsynMock';
 import ItemList from '../ItemList/ItemList';
 import { useState, useEffect } from 'react';
-
 import { useParams } from 'react-router-dom';
-function ItemListContainer({Saludo}){
 
-    const [products, setProducts]=useState([]);
-    const {categoryId}=useParams();
+function ItemListContainer({ Saludo }) {
+    const [products, setProducts] = useState([]);
+    const { categoryId } = useParams();
 
-    useEffect(()=>{
-        const asycFunc= categoryId ? getProductById : getProducts;
-        
-        asycFunc(categoryId)
-        .then(response=>{
-            setProducts(response)
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-    
-    },[categoryId])
+    useEffect(() => {
+        const asyncFunc = categoryId ? getProductByCategory : getProducts;
 
-    const productsFirstRange = products.filter(prod => parseInt(prod.id) >= 1 && parseInt(prod.id) <= 3);
-    const productsSecondRange = products.filter(prod => parseInt(prod.id) >= 4 && parseInt(prod.id) <= 6);
-    const productsThirdRange = products.filter(prod => parseInt(prod.id) >= 7 && parseInt(prod.id) <= 9);
-    
-    return(
+        asyncFunc(categoryId)
+            .then(response => {
+                setProducts(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+    }, [categoryId]);
+
+    // Función para dividir los productos en grupos de tres
+    const chunkArray = (arr, chunkSize) => {
+        const chunkedArray = [];
+        for (let i = 0; i < arr.length; i += chunkSize) {
+            chunkedArray.push(arr.slice(i, i + chunkSize));
+        }
+        return chunkedArray;
+    };
+
+    // Dividir los productos en grupos de tres
+    const groupedProducts = chunkArray(products, 3);
+
+    return (
         <div>
             <div className="container-itemlist">
                 <h2 className="title-item">{Saludo}</h2>
             </div>
-            <div className='producto-itemlist'>
-                <ItemList products={productsFirstRange}/>
-            </div>
-            <div className='producto-itemlist'>
-                <ItemList products={productsSecondRange}/>
-            </div>
-            <div className='producto-itemlist'>
-                <ItemList products={productsThirdRange}/>
-            </div>
+            {/* Renderizar los grupos de productos en divisiones diferentes */}
+            {groupedProducts.map((group, index) => (
+                <div key={index} className='producto-itemlist'>
+                    <ItemList products={group} />
+                </div>
+            ))}
         </div>
-    )
+    );
 }
+
 export default ItemListContainer;
-
-
-
-
 
 
 

@@ -6,16 +6,18 @@ import "./ItemDetailContainer.css"
 
 const ItemDetailContainer=()=>{
     const [product, setproduct]=useState(null)
-    const {itemId}= useParams()
+
+    const {ItemId}= useParams()
+    
     useEffect(()=>{
-        getProductById(itemId)
+        getProductById(ItemId)
         .then(response=>{
             setproduct(response)
         })
         .catch(error=>{
             console.log(error)
         })
-    }, [itemId])
+    }, [ItemId])
     return(
         <div className="ItemDetailContainer">
             <ItemDetail {...product}/>

@@ -21,10 +21,12 @@
     
 }
 .detalles-detalle{
+    display: flex;
+    justify-content: start;
     height: 43px;
     background-color: rgb(161, 161, 161);
     color: black;
-    font-size: small;
+    font-size: medium;
     font-weight: bold;
     padding: 10px;
     text-align: left;
@@ -50,6 +52,7 @@ rgb(161, 161, 161)
     color: black;
     text-decoration:underline;
     font-weight: bold;
+    
 }
 .detalle-moto-detalle:hover{
     background-color: rgb(0, 0, 0);
