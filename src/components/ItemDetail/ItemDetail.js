@@ -1,12 +1,20 @@
 import "./ItemDetail.css"
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CardContext";
 
 function ItemDetail({ id, img, modelo, descripcion, valor, Category, stock }) {
     const [quantityAdded, setQuantityAdded] = useState(0);
+    const {addItem}= useContext(CartContext)
+
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
+
+        const item={
+            id, modelo, valor
+        }
+        addItem(item, quantity)
     }
 
     return (
