@@ -34,7 +34,7 @@ function ItemListContainer({ Saludo }) {
     const groupedProducts = chunkArray(products, 3);
 
     return (
-        <div>
+        <div className='itemlist-completo'>
             <div className="container-itemlist">
                 <h2 className="title-item">{Saludo}</h2>
             </div>

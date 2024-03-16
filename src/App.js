@@ -5,6 +5,7 @@ import "bulma/css/bulma.css";
 import "./Style.css/App.css"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from "./context/CardContext.js";
+import Cart from "./components/Cart/Cart.js";
 
 
 
@@ -21,8 +22,9 @@ function App(){
                         <Route path="/category/:categoryId" element=
                             {<ItemListContainer/>}/>  
                         <Route path="/Item/:ItemId" element=
-                            {<div><section className="is-flex is-justify-content-center detail-item">
-                            <ItemDetailContainer/></section></div>}/> 
+                            {<section className="is-flex is-justify-content-center detail-item">
+                            <ItemDetailContainer/></section>}/>
+                        <Route path="/cart" element={<Cart />}/>
                         <Route path="*" element={<h1>404 NOT FOUND</h1>}/>                          
                     </Routes>
                 </CartProvider>
