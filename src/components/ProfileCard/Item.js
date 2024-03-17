@@ -4,7 +4,7 @@ function Item({id, img, modelo, descripcion, valor, Category}){
     
     return(
         <div className="card card-container">
-            <img className="card-image " src={'.'+img}/>            
+            <img className="card-image " src={img}/>            
             <h3 className=" is-centered modelo-moto">{modelo}</h3>
             <div className='descripcion-moto'>               
                 <p className=' precio-moto'>Precio unitario: {valor}US$</p>

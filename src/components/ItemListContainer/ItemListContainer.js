@@ -1,25 +1,41 @@
 import './ItemListContainer.css';
-import { getProducts, getProductByCategory } from '../../AsynMock';
+
 import ItemList from '../ItemList/ItemList';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from '../../servicesFirebase/firebaseConfig';
+
 function ItemListContainer({ Saludo }) {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] =useState(true);
+
     const { categoryId } = useParams();
 
-    useEffect(() => {
-        const asyncFunc = categoryId ? getProductByCategory : getProducts;
+    useEffect(()=>{
+        setLoading(true)
+        const collectionRef=categoryId
+        ?query(collection(db, 'Items'), where ('category','==', categoryId))
+        : collection(db, 'Items')
 
-        asyncFunc(categoryId)
-            .then(response => {
-                setProducts(response);
+        getDocs(collectionRef)
+        .then(response =>{
+            const productsAdapted=response.docs.map(doc=>{
+                const data=doc.data()
+                return {id: doc.id, ...data}
             })
-            .catch(error => {
-                console.log(error);
-            });
+            setProducts(productsAdapted)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
+    },[]);
 
-    }, [categoryId]);
+   
 
     // Función para dividir los productos en grupos de tres
     const chunkArray = (arr, chunkSize) => {
